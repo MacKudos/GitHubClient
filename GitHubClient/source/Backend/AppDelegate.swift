@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import PromiseKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        GitHubApi().obtainRepositoriesForUser("MacKudos").then { (op:AnyObject?) -> AnyPromise in
+            
+            debugPrint(op)
+            return  GitHubApi().obtainRepositoriesForUser("MacKudos")
+
+        }.then { (op:AnyObject?) -> AnyPromise in
+            
+            
+            return AnyPromise(bound: Promise<Void>(Void()))
+        }
+        
         return true
     }
 

@@ -5,6 +5,8 @@ use_frameworks!
 
 target 'GitHubClient' do
 	pod 'Alamofire', '~> 3.1.5'
+	pod 'EasyMapping', '~>0.15.4'
+	pod "PromiseKit", "~> 3.0.1”
 end
 
 target 'GitHubClientTests' do

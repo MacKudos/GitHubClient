@@ -1,10 +1,37 @@
 PODS:
   - Alamofire (3.1.5)
+  - EasyMapping (0.15.4):
+    - EasyMapping/Core (= 0.15.4)
+  - EasyMapping/Core (0.15.4)
+  - OMGHTTPURLRQ (3.0.2):
+    - OMGHTTPURLRQ/RQ (= 3.0.2)
+  - OMGHTTPURLRQ/FormURLEncode (3.0.2)
+  - OMGHTTPURLRQ/RQ (3.0.2):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (3.0.2)
+  - PromiseKit (3.0.1):
+    - PromiseKit/Foundation (= 3.0.1)
+    - PromiseKit/QuartzCore (= 3.0.1)
+    - PromiseKit/UIKit (= 3.0.1)
+  - PromiseKit/CorePromise (3.0.1)
+  - PromiseKit/Foundation (3.0.1):
+    - OMGHTTPURLRQ (~> 3.0.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (3.0.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (3.0.1):
+    - PromiseKit/CorePromise
 
 DEPENDENCIES:
   - Alamofire (~> 3.1.5)
+  - EasyMapping (~> 0.15.4)
+  - PromiseKit (~> 3.0.1)
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  EasyMapping: e1f5942b26e1f5ae7129032117721a2972844f2f
+  OMGHTTPURLRQ: 8376dc887d76a5a7e2a67881dc788f917a2f437c
+  PromiseKit: 19d12914484a15c25a46f72fde38579204a5dac6
 
 COCOAPODS: 0.39.0
