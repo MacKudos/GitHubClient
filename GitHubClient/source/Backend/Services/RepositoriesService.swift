@@ -11,16 +11,16 @@ import Foundation
 class RepositoriesService: NSObject {
     
     private var api:GitHubApiProtocol
-    private weak var errorHandler:applicationerrorHandler?
+    private weak var errorHandler:applicationErrorHandler?
     
-    init(apiObject:GitHubApiProtocol!, errorHandler:applicationerrorHandler?) {
+    init(apiObject:GitHubApiProtocol!, errorHandler:applicationErrorHandler?) {
         
         self.api = apiObject
         self.errorHandler = errorHandler
         super.init()
     }
     
-    func obtainRepositoriesForUser(user:String, callback:((repositories:Array<Repository>?) -> Void)) {
+    func obtainRepositoriesForUser(user:String, callback:((repositories:[Repository]?) -> Void)) {
         
         api.obtainRepositoriesForUser(user).then { (repos:[ObtainRepositroiesResponse]) -> Void in
             

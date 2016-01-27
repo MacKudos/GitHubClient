@@ -8,7 +8,11 @@
 
 import Foundation
 
-protocol applicationerrorHandler: class {
+enum ApplicationState {
+    case mainState
+}
+
+protocol applicationErrorHandler: class {
     
     func applicationSholdProcessError(err:NSError)
 }
@@ -17,7 +21,7 @@ protocol applicationCoordinatorProtocol: class {
     
     func applicationShooldPresentAuthorizationView()
     func applicationShooldPresentError(er:NSError)
-    func applicationSholdProcessUIState(state:AnyObject)
+    func applicationSholdProcessUIState(state:ApplicationState)
 }
 
 class ApplicationCoordinator: NSObject {
@@ -36,7 +40,7 @@ class ApplicationCoordinator: NSObject {
         
         ServiceHolder.sharedInstance.applicationCoordinator = self
         ServiceHolder.sharedInstance.repositoriesService = RepositoriesService(apiObject: api, errorHandler:self)
-        ServiceHolder.sharedInstance.authSevice = AuthService(delegate: self, apiObject:  api)
+        ServiceHolder.sharedInstance.authSevice = AuthService(delegate: self, apiObject:  api, errorHandler:self)
     }
     
     func applicationRetriveAuthAccessCode(code:String!) {
@@ -45,7 +49,7 @@ class ApplicationCoordinator: NSObject {
     }
 }
 
-extension ApplicationCoordinator : applicationerrorHandler {
+extension ApplicationCoordinator : applicationErrorHandler {
     
     func applicationSholdProcessError(err:NSError) {
         

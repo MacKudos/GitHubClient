@@ -15,6 +15,14 @@
 		5523E2BE1C589DFF0034090A /* GitHubApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2BD1C589DFF0034090A /* GitHubApiProtocol.swift */; };
 		5523E2C01C589F160034090A /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2BF1C589F160034090A /* ApplicationCoordinator.swift */; };
 		5523E2C21C58A00C0034090A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2C11C58A00C0034090A /* AuthService.swift */; };
+		5523E2C41C58B05E0034090A /* ApplicationContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2C31C58B05E0034090A /* ApplicationContainerViewController.swift */; };
+		5523E2C61C58B2680034090A /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2C51C58B2680034090A /* RepositoriesViewController.swift */; };
+		5523E2C81C58B2880034090A /* RepositoriesViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2C71C58B2880034090A /* RepositoriesViewControllerProtocol.swift */; };
+		5523E2CA1C58B4990034090A /* RepositoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2C91C58B4990034090A /* RepositoriesPresenter.swift */; };
+		5523E2CC1C58BD1B0034090A /* RepositoriesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2CB1C58BD1B0034090A /* RepositoriesWireframe.swift */; };
+		5523E2CE1C58C2E60034090A /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2CD1C58C2E60034090A /* UIViewControllerProtocol.swift */; };
+		5523E2D01C58CC690034090A /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2CF1C58CC690034090A /* Wireframe.swift */; };
+		5523E2D21C58D0700034090A /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2D11C58D0700034090A /* ViewControllerPresenter.swift */; };
 		556AE5791C5582CA00497F49 /* GitHubApiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AE5781C5582CA00497F49 /* GitHubApiUser.swift */; };
 		556AE57B1C558B4C00497F49 /* AuthorizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AE57A1C558B4C00497F49 /* AuthorizationResponse.swift */; };
 		556AE57D1C558C5B00497F49 /* AuthorizationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AE57C1C558C5B00497F49 /* AuthorizationMapper.swift */; };
@@ -47,6 +55,14 @@
 		5523E2BD1C589DFF0034090A /* GitHubApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubApiProtocol.swift; sourceTree = "<group>"; };
 		5523E2BF1C589F160034090A /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		5523E2C11C58A00C0034090A /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		5523E2C31C58B05E0034090A /* ApplicationContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContainerViewController.swift; sourceTree = "<group>"; };
+		5523E2C51C58B2680034090A /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		5523E2C71C58B2880034090A /* RepositoriesViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewControllerProtocol.swift; sourceTree = "<group>"; };
+		5523E2C91C58B4990034090A /* RepositoriesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesPresenter.swift; sourceTree = "<group>"; };
+		5523E2CB1C58BD1B0034090A /* RepositoriesWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoriesWireframe.swift; path = ../Common/RepositoriesWireframe.swift; sourceTree = "<group>"; };
+		5523E2CD1C58C2E60034090A /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
+		5523E2CF1C58CC690034090A /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		5523E2D11C58D0700034090A /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
 		556AE5781C5582CA00497F49 /* GitHubApiUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubApiUser.swift; path = ../Services/GitHubApiUser.swift; sourceTree = "<group>"; };
 		556AE57A1C558B4C00497F49 /* AuthorizationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationResponse.swift; sourceTree = "<group>"; };
 		556AE57C1C558C5B00497F49 /* AuthorizationMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationMapper.swift; sourceTree = "<group>"; };
@@ -248,6 +264,10 @@
 		55AEA2461C5571B2002B702A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5523E2CD1C58C2E60034090A /* UIViewControllerProtocol.swift */,
+				5523E2C31C58B05E0034090A /* ApplicationContainerViewController.swift */,
+				5523E2CF1C58CC690034090A /* Wireframe.swift */,
+				5523E2D11C58D0700034090A /* ViewControllerPresenter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -255,6 +275,10 @@
 		55AEA2471C5571B2002B702A /* User strories */ = {
 			isa = PBXGroup;
 			children = (
+				5523E2CB1C58BD1B0034090A /* RepositoriesWireframe.swift */,
+				5523E2C51C58B2680034090A /* RepositoriesViewController.swift */,
+				5523E2C71C58B2880034090A /* RepositoriesViewControllerProtocol.swift */,
+				5523E2C91C58B4990034090A /* RepositoriesPresenter.swift */,
 			);
 			path = "User strories";
 			sourceTree = "<group>";
@@ -421,11 +445,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				55AEA24C1C5571B2002B702A /* AppDelegate.swift in Sources */,
+				5523E2CC1C58BD1B0034090A /* RepositoriesWireframe.swift in Sources */,
 				5523E2B41C5635920034090A /* ObtainRepostitoriesResponseMapper.swift in Sources */,
+				5523E2C81C58B2880034090A /* RepositoriesViewControllerProtocol.swift in Sources */,
+				5523E2CE1C58C2E60034090A /* UIViewControllerProtocol.swift in Sources */,
+				5523E2C41C58B05E0034090A /* ApplicationContainerViewController.swift in Sources */,
+				5523E2CA1C58B4990034090A /* RepositoriesPresenter.swift in Sources */,
 				5523E2C01C589F160034090A /* ApplicationCoordinator.swift in Sources */,
+				5523E2D01C58CC690034090A /* Wireframe.swift in Sources */,
+				5523E2C61C58B2680034090A /* RepositoriesViewController.swift in Sources */,
 				556AE5791C5582CA00497F49 /* GitHubApiUser.swift in Sources */,
 				5523E2B81C577F090034090A /* RepositoriesService.swift in Sources */,
 				556AE57F1C558CA100497F49 /* MapperProtocol.swift in Sources */,
+				5523E2D21C58D0700034090A /* ViewControllerPresenter.swift in Sources */,
 				556AE57D1C558C5B00497F49 /* AuthorizationMapper.swift in Sources */,
 				556AE57B1C558B4C00497F49 /* AuthorizationResponse.swift in Sources */,
 				5523E2BA1C57929D0034090A /* Repository.swift in Sources */,

@@ -67,10 +67,23 @@ class GitHubApi: NSObject, GitHubApiProtocol {
                 case .Failure(let error):
                     reject(error)
                 case .Success(let responseObject):
-                    fulfill(responseObject)
+                    if let err = self.isGitHubErr(responseObject) {
+                        reject(err)
+                    } else {
+                        fulfill(responseObject)
+                    }
                 }
             }
         }
+    }
+    
+    func isGitHubErr(response:AnyObject) -> NSError? {
+        
+        if let errorDictionary = response as? [NSObject:AnyObject] {
+            let message = errorDictionary["message"] as? String
+            return NSError(domain: "gitHubApi", code: 0, userInfo: [NSLocalizedDescriptionKey : message!])
+        }
+        return nil
     }
     
     func makePublicRequest(method:Alamofire.Method, path:String, parameters:[String: AnyObject]?, mapper:MapperProtocol) -> Promise<AnyObject> {
@@ -81,17 +94,14 @@ class GitHubApi: NSObject, GitHubApiProtocol {
                 case .Failure(let error):
                     reject(error)
                 case .Success(let responseObject):
-                    fulfill(mapper.mappedEntity(responseObject)!)
+                    
+                    if let err = self.isGitHubErr(responseObject) {
+                        reject(err)
+                    } else {
+                        fulfill(mapper.mappedEntity(responseObject)!)
+                    }
                 }
             }
-        }
-    }
-    
-    func obtainRepositoriesForUserWrong(user:NSString) -> Promise<[ObtainRepositroiesResponse]> {
-
-        return self.makeRequest(.GET, path: "https://api.gsithub.com/users/\(user)/repos", parameters: nil, mapper:ObtainRepositoriesResponseMapper()).then { (obj:AnyObject) -> Promise<[ObtainRepositroiesResponse]> in
-            
-            return Promise{ fulfill, reject in fulfill(obj as! [ObtainRepositroiesResponse])}
         }
     }
     
@@ -102,7 +112,4 @@ class GitHubApi: NSObject, GitHubApiProtocol {
             return Promise{ fulfill, reject in fulfill(obj as! [ObtainRepositroiesResponse])}
         }
     }
-        
-        //return self.makeRequest(.GET, path: "https://api.github.com/users/\(user)/repos", parameters: nil, mapper:ObtainRepositoriesResponseMapper())
-    //}
 }

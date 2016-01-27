@@ -26,6 +26,7 @@ class AuthService: NSObject   {
     private var accessCode:String?
     
     var api:GitHubApiProtocol
+    private weak var errorHandler:applicationErrorHandler?
     weak var delegate:applicationAuthServiceProtocol?
     
     var authorizationURL:String {
@@ -33,7 +34,7 @@ class AuthService: NSObject   {
         return "https:///oauth/authorize/?client_id=" + clientId + "&redirect_uri=" + redirectURL + "&response_type=" + "code"
     }
     
-    init(delegate:applicationAuthServiceProtocol!, apiObject:GitHubApiProtocol!) {
+    init(delegate:applicationAuthServiceProtocol!, apiObject:GitHubApiProtocol!, errorHandler:applicationErrorHandler?) {
         
         self.delegate = delegate
         self.api = apiObject

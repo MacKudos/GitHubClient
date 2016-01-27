@@ -21,7 +21,6 @@ class ServiceHolder: NSObject {
         return Static.instance!
     }
     
-    var apiService:GitHubApiProtocol?
     var repositoriesService:RepositoriesService?
     var applicationCoordinator:ApplicationCoordinator?
     var authSevice:AuthService?
