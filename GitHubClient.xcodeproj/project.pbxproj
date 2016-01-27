@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5523E2B41C5635920034090A /* ObtainRepostitoriesResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2B31C5635920034090A /* ObtainRepostitoriesResponseMapper.swift */; };
 		5523E2B61C5635B60034090A /* ObtainRepositroiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2B51C5635B60034090A /* ObtainRepositroiesResponse.swift */; };
+		5523E2B81C577F090034090A /* RepositoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2B71C577F090034090A /* RepositoriesService.swift */; };
+		5523E2BA1C57929D0034090A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2B91C57929D0034090A /* Repository.swift */; };
+		5523E2BC1C589BF40034090A /* ServiceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2BB1C589BF40034090A /* ServiceHolder.swift */; };
+		5523E2BE1C589DFF0034090A /* GitHubApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2BD1C589DFF0034090A /* GitHubApiProtocol.swift */; };
+		5523E2C01C589F160034090A /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2BF1C589F160034090A /* ApplicationCoordinator.swift */; };
+		5523E2C21C58A00C0034090A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523E2C11C58A00C0034090A /* AuthService.swift */; };
 		556AE5791C5582CA00497F49 /* GitHubApiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AE5781C5582CA00497F49 /* GitHubApiUser.swift */; };
 		556AE57B1C558B4C00497F49 /* AuthorizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AE57A1C558B4C00497F49 /* AuthorizationResponse.swift */; };
 		556AE57D1C558C5B00497F49 /* AuthorizationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AE57C1C558C5B00497F49 /* AuthorizationMapper.swift */; };
@@ -35,6 +41,12 @@
 /* Begin PBXFileReference section */
 		5523E2B31C5635920034090A /* ObtainRepostitoriesResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObtainRepostitoriesResponseMapper.swift; sourceTree = "<group>"; };
 		5523E2B51C5635B60034090A /* ObtainRepositroiesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObtainRepositroiesResponse.swift; sourceTree = "<group>"; };
+		5523E2B71C577F090034090A /* RepositoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesService.swift; sourceTree = "<group>"; };
+		5523E2B91C57929D0034090A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		5523E2BB1C589BF40034090A /* ServiceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHolder.swift; sourceTree = "<group>"; };
+		5523E2BD1C589DFF0034090A /* GitHubApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubApiProtocol.swift; sourceTree = "<group>"; };
+		5523E2BF1C589F160034090A /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		5523E2C11C58A00C0034090A /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		556AE5781C5582CA00497F49 /* GitHubApiUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubApiUser.swift; path = ../Services/GitHubApiUser.swift; sourceTree = "<group>"; };
 		556AE57A1C558B4C00497F49 /* AuthorizationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationResponse.swift; sourceTree = "<group>"; };
 		556AE57C1C558C5B00497F49 /* AuthorizationMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationMapper.swift; sourceTree = "<group>"; };
@@ -193,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				55AEA24D1C55747A002B702A /* GitHubApi.swift */,
+				5523E2BD1C589DFF0034090A /* GitHubApiProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -207,6 +220,7 @@
 		55AEA2431C5571B2002B702A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5523E2B91C57929D0034090A /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +228,10 @@
 		55AEA2441C5571B2002B702A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5523E2B71C577F090034090A /* RepositoriesService.swift */,
+				5523E2BB1C589BF40034090A /* ServiceHolder.swift */,
+				5523E2BF1C589F160034090A /* ApplicationCoordinator.swift */,
+				5523E2C11C58A00C0034090A /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -404,12 +422,18 @@
 			files = (
 				55AEA24C1C5571B2002B702A /* AppDelegate.swift in Sources */,
 				5523E2B41C5635920034090A /* ObtainRepostitoriesResponseMapper.swift in Sources */,
+				5523E2C01C589F160034090A /* ApplicationCoordinator.swift in Sources */,
 				556AE5791C5582CA00497F49 /* GitHubApiUser.swift in Sources */,
+				5523E2B81C577F090034090A /* RepositoriesService.swift in Sources */,
 				556AE57F1C558CA100497F49 /* MapperProtocol.swift in Sources */,
 				556AE57D1C558C5B00497F49 /* AuthorizationMapper.swift in Sources */,
 				556AE57B1C558B4C00497F49 /* AuthorizationResponse.swift in Sources */,
+				5523E2BA1C57929D0034090A /* Repository.swift in Sources */,
 				5523E2B61C5635B60034090A /* ObtainRepositroiesResponse.swift in Sources */,
+				5523E2BE1C589DFF0034090A /* GitHubApiProtocol.swift in Sources */,
 				55AEA24E1C55747A002B702A /* GitHubApi.swift in Sources */,
+				5523E2BC1C589BF40034090A /* ServiceHolder.swift in Sources */,
+				5523E2C21C58A00C0034090A /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import PromiseKit
 
-class GitHubApi: NSObject {
+class GitHubApi: NSObject, GitHubApiProtocol {
     
     var apiUser:GitHubApiUser?
 
@@ -50,7 +50,7 @@ class GitHubApi: NSObject {
         }
     }
     
-    func makeRequest(method:Alamofire.Method, path:String, parameters:[String: AnyObject]?, mapper:MapperProtocol) -> AnyPromise {
+    func makeRequest(method:Alamofire.Method, path:String, parameters:[String: AnyObject]?, mapper:MapperProtocol) -> Promise<AnyObject> {
 
         if self.apiUser?.status == GitHubApiUserState.authrized {
             return self.makeAuthorizedRequest(method, path: path, parameters: parameters, mapper: mapper)
@@ -59,9 +59,9 @@ class GitHubApi: NSObject {
         }
     }
     
-    func makeAuthorizedRequest(method:Alamofire.Method, path:String, parameters:[String: AnyObject]?, mapper:MapperProtocol) -> AnyPromise {
+    func makeAuthorizedRequest(method:Alamofire.Method, path:String, parameters:[String: AnyObject]?, mapper:MapperProtocol) -> Promise<AnyObject> {
         
-        return AnyPromise(bound:Promise <AnyObject> { fulfill, reject in
+        return Promise{ fulfill, reject in
             Alamofire.request(method, path, parameters: parameters, encoding: ParameterEncoding.URL, headers: ["Authorization": "token \(self.apiUser!.token)"]).responseJSON { response in
                 switch response.result {
                 case .Failure(let error):
@@ -70,12 +70,12 @@ class GitHubApi: NSObject {
                     fulfill(responseObject)
                 }
             }
-        })
+        }
     }
     
-    func makePublicRequest(method:Alamofire.Method, path:String, parameters:[String: AnyObject]?, mapper:MapperProtocol) -> AnyPromise {
+    func makePublicRequest(method:Alamofire.Method, path:String, parameters:[String: AnyObject]?, mapper:MapperProtocol) -> Promise<AnyObject> {
         
-        return AnyPromise(bound:Promise <AnyObject> { fulfill, reject in
+        return Promise{ fulfill, reject in
             Alamofire.request(method, path, parameters: parameters, encoding: ParameterEncoding.URL).responseJSON { response in
                 switch response.result {
                 case .Failure(let error):
@@ -84,10 +84,25 @@ class GitHubApi: NSObject {
                     fulfill(mapper.mappedEntity(responseObject)!)
                 }
             }
-        })
+        }
     }
     
-    func obtainRepositoriesForUser(user:NSString) -> AnyPromise {
-        return self.makeRequest(.GET, path: "https://api.github.com/users/\(user)/repos", parameters: nil, mapper:ObtainRepositoriesResponseMapper())
+    func obtainRepositoriesForUserWrong(user:NSString) -> Promise<[ObtainRepositroiesResponse]> {
+
+        return self.makeRequest(.GET, path: "https://api.gsithub.com/users/\(user)/repos", parameters: nil, mapper:ObtainRepositoriesResponseMapper()).then { (obj:AnyObject) -> Promise<[ObtainRepositroiesResponse]> in
+            
+            return Promise{ fulfill, reject in fulfill(obj as! [ObtainRepositroiesResponse])}
+        }
     }
+    
+    func obtainRepositoriesForUser(user:NSString) -> Promise<[ObtainRepositroiesResponse]> {
+        
+        return self.makeRequest(.GET, path: "https://api.github.com/users/\(user)/repos", parameters: nil, mapper:ObtainRepositoriesResponseMapper()).then { (obj:AnyObject) -> Promise<[ObtainRepositroiesResponse]> in
+            
+            return Promise{ fulfill, reject in fulfill(obj as! [ObtainRepositroiesResponse])}
+        }
+    }
+        
+        //return self.makeRequest(.GET, path: "https://api.github.com/users/\(user)/repos", parameters: nil, mapper:ObtainRepositoriesResponseMapper())
+    //}
 }
